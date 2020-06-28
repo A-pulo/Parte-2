@@ -1,0 +1,279 @@
+FORMAT: 1A
+HOST: https://aplicacao.api.teste/
+
+# Clientes e lacres
+
+Registro de clientes e lacres de uma interventora autorizada
+
+
+# Group Clientes
+
+## Listar todos os clientes [/clientes]
+
+### Metodo GET [GET]
+
++ Response 200 (application/json)
+
+        {
+            "status": "Sucesso"
+            "retorno": [
+                {
+                    "id": "1",
+                    "nome": "Posto Juquinha",
+                    "telefone": "9160-0224",
+                    "e-mail": "postoJuca@gmail.com",
+                    "cpf/cnpj": "12.545.123/0001-82",
+                    "ie": "",
+                    "rua": "rua tal",
+                    "numero": "1",
+                    "complemento": "posto",
+                    "cep": "10000-001",
+                    "uf": "SC"
+                },
+                ...
+            ]
+        }
+
+## Retornar dados de um unico cliente [/clientes/{id}]
+
+### Metodo GET, parametro id[GET]
+
++ Parameters
+    + id (number) - ID do cliente
+
++ Response 200 (application/json)
+
+        {
+            "status": "Sucesso"
+            "retorno": {
+                "id": "1",
+                "nome": "Posto Juquinha",
+                "telefone": "9160-0224",
+                "e-mail": "postoJuca@gmail.com",
+                "cpf/cnpj": "12.545.123/0001-82",
+                "ie": "",
+                "rua": "rua tal",
+                "numero": "1",
+                "complemento": "posto",
+                "cep": "10000-001",
+                "uf": "SC"
+            }
+        }
+        
+## Inserir cliente [/createcliente]
+
+### Metodo POST [POST]
+
++ Request (application/json)
+
+        {
+            "nome": "Mercado zezinho",
+            "telefone": "9260-0201",
+            "e-mail": "mercadoze@gmail.com",
+            "cpf/cnpj": "12.313.123/0001-82",
+            "ie": "",
+            "rua": "rua tal",
+            "numero": "2",
+            "complemento": "mercado",
+            "cep": "10000-011",
+            "uf": "SC"
+        }
+
++ Response 201 (application/json)
+
+        {
+            "status": "Sucesso"
+            "retorno": {
+                "nome": "Mercado zezinho",
+                "telefone": "9260-0201",
+                "e-mail": "mercadoze@gmail.com",
+                "cpf/cnpj": "12.313.123/0001-82",
+                "ie": "",
+                "rua": "rua tal",
+                "numero": "2",
+                "complemento": "mercado",
+                "cep": "10000-011",
+                "uf": "SC"
+            }
+        }
+
+## Mudar dados em cliente existente [/updatecliente/{id}]
+
+### Metodo PUT, parametro id [PUT]
+
++ Parameters
+    + id (number) - ID do cliente
+
++ Request (application/json)
+
+        {
+            "nome": "Mercado zezinho",
+            "telefone": "9260-0201",
+            "e-mail": "mercadozezinho@gmail.com",
+            "cpf/cnpj": "12.313.123/0001-82",
+            "ie": "",
+            "rua": "rua tal",
+            "numero": "2",
+            "complemento": "mercado",
+            "cep": "10000-011",
+            "uf": "SC"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status": "Sucesso"
+            "retorno": {
+                "nome": "Mercado zezinho",
+                "telefone": "9260-0201",
+                "e-mail": "mercadozezinho@gmail.com",
+                "cpf/cnpj": "12.313.123/0001-82",
+                "ie": "",
+                "rua": "rua tal",
+                "numero": "2",
+                "complemento": "mercado",
+                "cep": "10000-011",
+                "uf": "SC"
+            }
+        }
+
+## Excluir Cliente [/deletecliente/{id}]
+
+### Metodo delete, parametro id [DELETE]
+
++ Parameters
+    + id (number) - ID do cliente
+
++ Request (application/json)
+
+        {
+            "nome": "Mercado zezinho",
+            "telefone": "9260-0201",
+            "e-mail": "mercadozezinho@gmail.com",
+            "cpf/cnpj": "12.313.123/0001-82",
+            "ie": "",
+            "rua": "rua tal",
+            "numero": "2",
+            "complemento": "mercado",
+            "cep": "10000-011",
+            "uf": "SC"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status": "Sucesso"
+            "retorno": {
+                "nome": "Mercado zezinho",
+                "telefone": "9260-0201",
+                "e-mail": "mercadozezinho@gmail.com",
+                "cpf/cnpj": "12.313.123/0001-82",
+                "ie": "",
+                "rua": "rua tal",
+                "numero": "2",
+                "complemento": "mercado",
+                "cep": "10000-011",
+                "uf": "SC"
+            }
+        }
+
+
+#Group Lacres
+
+## Listar todos os lacres [/lacres]
+
+### Metodo GET [GET]
+
++ Response 200 (application/json)
+
+        {
+            "status": "Sucesso"
+            "retorno": [
+                {
+                    "nr_serie": "2513575",
+                    "lote": "45",
+                    "data_entrada": "2020-06-26",
+                    "data_baixa": "",
+                    "id_cliente_lacrado": ""
+                },
+                ...
+            ]
+        }
+
+## Retornar dados de um unico lacre [/lacres/{nr_serie}]
+
+### Metodo GET, parametro nr_serie[GET]
+
++ Parameters
+    + nr_serie (number) - Numero de serie do lacre
+
++ Response 200 (application/json)
+
+        {
+            "status": "Sucesso"
+            "retorno": {
+                "nr_serie": "2513575",
+                "lote": "45",
+                "data_entrada": "2020-06-26",
+                "data_uso": "",
+                "id_cliente_lacrado": ""
+            }
+
+        }
+        
+## Inserir lacre [/createlacre]
+
+### Metodo POST [POST]
+
++ Request (application/json)
+
+        {
+            "nr_serie": "2513576",
+            "lote": "45",
+            "data_entrada": "2020-06-26",
+            "data_uso": "",
+            "id_cliente_lacrado": ""
+        }
+
++ Response 201 (application/json)
+
+        {
+            "status": "Sucesso"
+            "retorno": {
+                "nr_serie": "2513576",
+                "lote": "45",
+                "data_entrada": "2020-06-26",
+                "data_uso": "",
+                "id_cliente_lacrado": ""
+            }
+        }
+
+## Mudar dados em lacre existente [/updatelacre/{nr_serie}]
+
+### Metodo PUT, parametro nr_serie [PUT]
+
++ Parameters
+    + nr_serie (number) - Numero de serie do lacre
+
++ Request (application/json)
+
+        {
+            "nr_serie": "2513576",
+            "lote": "45",
+            "data_entrada": "2020-06-26",
+            "data_uso": "2020-06-28",
+            "id_cliente_lacrado": "1"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status": "Sucesso"
+            "retorno": {
+                "nr_serie": "2513576",
+                "lote": "45",
+                "data_entrada": "2020-06-26",
+                "data_uso": "2020-06-28",
+                "id_cliente_lacrado": "1"
+            }
+        }
