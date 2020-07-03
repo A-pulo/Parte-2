@@ -278,21 +278,16 @@
                 }
             // Scripts dos lacres
             function resetSaveLacre() {
-                    document.getElementById("Salvar").setAttribute("onclick", "criarLacre()");
+                    document.getElementById("SalvarLacre").setAttribute("onclick", "criarLacre()");
                 }
                 function loadLacre(lacre) {
-                    document.getElementById("nome").value = lacre[1].nome;
-                    document.getElementById("telefone").value = lacre[1].telefone;
-                    document.getElementById("email").value = lacre[1].email;
-                    document.getElementById("cpf").value = lacre[1].cpf;
-                    document.getElementById("ie").value = lacre[1].ie;
-                    document.getElementById("rua").value = lacre[1].rua;
-                    document.getElementById("numero").value = lacre[1].numero;
-                    document.getElementById("complemento").value = lacre[1].complemento;
-                    document.getElementById("cep").value = lacre[1].cep;
-                    document.getElementById("uf").value  = lacre[1].uf;
-                    document.getElementById("Salvar").setAttribute("onclick", "updateLacre('"+lacre[1].id+"')");
-                    console.log(document.getElementById("Salvar"));
+                    document.getElementById("nr_serie").value = lacre[1].nr_serie;
+                    document.getElementById("lote").value = lacre[1].lote;
+                    document.getElementById("data_entrada").value = lacre[1].data_entrada;
+                    document.getElementById("data_baixa").value = lacre[1].data_baixa;
+                    document.getElementById("id_cliente_lacrado").value = lacre[1].id_cliente_lacrado;
+                    document.getElementById("SalvarLacre").setAttribute("onclick", "updateLacre('"+lacre[1].nr_serie+"')");
+                    console.log(document.getElementById("SalvarLacre"));
                 }
 
                 function getLacre(idlacre){
@@ -311,16 +306,11 @@
                 function updateLacre(idlacre){
                     var xhttp = new XMLHttpRequest();
                     var registro = {
-                        nome: document.getElementById("nome").value,
-                        telefone: document.getElementById("telefone").value,
-                        email: document.getElementById("email").value,
-                        cpf: document.getElementById("cpf").value,
-                        ie: document.getElementById("ie").value,
-                        rua: document.getElementById("rua").value,
-                        numero: document.getElementById("numero").value,
-                        complemento: document.getElementById("complemento").value,
-                        cep: document.getElementById("cep").value,
-                        uf: document.getElementById("uf").value
+                        nr_serie: document.getElementById("nr_serie").value,
+                        lote: document.getElementById("lote").value,
+                        data_entrada: document.getElementById("data_entrada").value,
+                        data_baixa: document.getElementById("data_baixa").value,
+                        id_cliente_lacrado: document.getElementById("id_cliente_lacrado").value,
                     };
                     xhttp.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
@@ -334,34 +324,15 @@
                     console.log(JSON.stringify(registro));
                     resetSaveLacre();
                 }
-
-                function deleteLacre(idlacre){
-                    if (confirm("Deseja excluir o lacre " + idlacre + " ?")) {
-                        var xhttp = new XMLHttpRequest();
-                        xhttp.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200) {
-                                var response = JSON.parse(this.responseText);
-                                console.log(response);
-                            }
-                        };
-                        xhttp.open("DELETE", "https://private-e53594-apulo.apiary-mock.com/deletelacre/"+idlacre, true);
-                        xhttp.send();
-                    }
-                }
                 
                 function criarLacre() {
                     var xhttp = new XMLHttpRequest();
                     var registro = {
-                        nome: document.getElementById("nome").value,
-                        telefone: document.getElementById("telefone").value,
-                        email: document.getElementById("email").value,
-                        cpf: document.getElementById("cpf").value,
-                        ie: document.getElementById("ie").value,
-                        rua: document.getElementById("rua").value,
-                        numero: document.getElementById("numero").value,
-                        complemento: document.getElementById("complemento").value,
-                        cep: document.getElementById("cep").value,
-                        uf: document.getElementById("uf").value
+                        nr_serie: document.getElementById("nr_serie").value,
+                        lote: document.getElementById("lote").value,
+                        data_entrada: document.getElementById("data_entrada").value,
+                        data_baixa: document.getElementById("data_baixa").value,
+                        id_cliente_lacrado: document.getElementById("id_cliente_lacrado").value,
                     };
                     xhttp.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 201) {
@@ -380,7 +351,7 @@
                     xhttp.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
                             var response = JSON.parse(this.responseText);
-                            document.getElementById("tabela").innerHTML="<tr><th>Numero de serie</th><th>Lote</th><th>Data de Entrada/th><th>Data de Baixa</th><th>Id do Cliente Lacrado</th><th>Ação</th></tr>"
+                            document.getElementById("tabela").innerHTML="<tr><th>Numero de serie</th><th>Lote</th><th>Data de Entrada</th><th>Data de Baixa</th><th>Id do Cliente Lacrado</th><th>Ação</th></tr>"
                             document.getElementById("tabela").insertAdjacentHTML("beforeend", createRowsLacre(response.retorno));
                             console.log(response);
                         }
@@ -397,8 +368,8 @@
                         "<td>" + retorno[i].lote + "</td>" + 
                         "<td>" + retorno[i].data_entrada + "</td>" + 
                         "<td>" + retorno[i].data_baixa + "</td>" +
-                        "<td>" + retorno[i].cliente+ "</td>" +
-                        "<td><p class=\"mx-1 my-1\"><button type=\"button\" class=\"btn btn-link\" onclick=\"getLacre('" + retorno[i].nr_serie + "')\">Editar</button> | <button type=\"button\" class=\"btn btn-link\" onclick=\"deleteLacre('" + retorno[i].nr_serie + "')\">Excluir</button>" +
+                        "<td>" + retorno[i].id_cliente_lacrado + "</td>" +
+                        "<td><p class=\"mx-1 my-1\"><button type=\"button\" class=\"btn btn-link\" onclick=\"getLacre('" + retorno[i].nr_serie + "')\">Editar</button>" +
                         "</tr>"
                     }
                     return htmlString;
