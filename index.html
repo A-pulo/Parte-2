@@ -11,87 +11,129 @@
     </head>
     <body>
         <main class="container bg-secondary align-center jumbotron vertical-center" style="margin-top:30px; border-width: 3px; border-style: solid; border-color: black;">
-            <div class = "row mx-1 my-2">
-                <div class=" col-8 mx-auto">
-                    <form action="" class="needs-validation text-white" id="cliente" method="POST">
-                        <br>
-                        <div class="row">
-                            <div class="col-4">
-                                <label for="nome"><b>Nome:</b></label>
-                                <input type="text" class="form-control" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" id="nome" placeholder="Nome" name="nome" required>
-                            </div>
-                            <div class="col-4">
-                                <label for="cpf"><b>Nome:</b></label>
-                                <input type="text" class="form-control" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" id="cpf" placeholder="CPF/CNPJ" name="cpf" required>
-                            </div>
-                            <div class="col-4">
-                                <label for="ie"><b>Nome:</b></label>
-                                <input type="text" class="form-control" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" id="ie" placeholder="IE" name="cnpj" required>
-                            </div>
-
-                        </div>
-                        <br>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class = "col-1"></div>
-                            <button type="button" class="col-4 btn btn-dark" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" id ="Salvar" onclick="criarcliente()"><b>Salvar</b></button>
-                            <div class = "col-2"></div>
-                            <button type="reset" class="col-4 btn btn-dark" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" id ="Cancelar" onclick="resetSave();"><b>Cancelar</b></button>
-                            <div class = "col-1"></div>
-                        </div>
-                    </form>
+            <form action="" class="needs-validation text-white" id="cliente" method="POST">
+                <div class = "row mx-1 my-2">
+                    <div class="col-1"></div>
+                    <div class="col-4">
+                        <label for="nome"><b>Nome</b></label>
+                        <input type="text" class="form-control" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" id="nome" placeholder="Nome" name="nome" required>
+                    </div>
+                    <div class="col-3">
+                        <label for="cpf"><b>CPF/CNPJ</b></label>
+                        <input type="text" class="form-control" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" id="cpf" placeholder="cpf/cnpj" name="cpf" required>
+                    </div>
+                    <div class="col-2">
+                        <label for="ie"><b>Inscrição Estadual</b></label>
+                        <input type="text" class="form-control" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" id="ie" placeholder="IE" name="ie" required>
+                    </div>
+                    <div class="col-1">
+                        <label for="uf"><b>Uf</b></label>
+                        <input type="text" class="form-control" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" id="uf" placeholder="UF" name="uf" required>
+                    </div>    
+                    <div class="col-1"></div>
                 </div>
+                <div class = "row mx-1 my-2">
+                    <div class="col-1"></div>
+                    <div class="col-4">
+                        <label for="email"><b>E-Mail</b></label>
+                        <input type="text" class="form-control" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" id="email" placeholder="e-mail" name="email" required>
+                    </div>
+                    <div class="col-3">
+                        <label for="telefone"><b>Telefone</b></label>
+                        <input type="text" class="form-control" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" id="telefone" placeholder="Telefone" name="telefone" required>
+                    </div>
+                    <div class="col-3">
+                        <label for="cep"><b>Cep</b></label>
+                        <input type="text" class="form-control" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" id="cep" placeholder="Cep" name="cep" required>
+                    </div>       
+                    <div class="col-1"></div>
+                </div>
+                <div class = "row mx-1 my-2">
+                    <div class="col-1"></div>
+                    <div class="col-5">
+                        <label for="rua"><b>Rua</b></label>
+                        <input type="text" class="form-control" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" id="rua" placeholder="Rua" name="rua" required>
+                    </div>
+                    <div class="col-1">
+                        <label for="numero"><b>Nº</b></label>
+                        <input type="text" class="form-control" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" id="numero" placeholder="Nº" name="numero" required>
+                    </div>
+                    <div class="col-4">
+                        <label for="complemento"><b>Complemento</b></label>
+                        <input type="text" class="form-control" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" id="complemento" placeholder="Complemento" name="complemento" required>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+                </br>
+                <div class = "row mx-1 my-2">
+                    <div class = "col-2"></div>
+                    <button type="button" class="col-3 btn btn-dark" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" id ="Salvar" onclick="criarCliente()"><b>Salvar</b></button>
+                    <div class = "col-2"></div>
+                    <button type="reset" class="col-3 btn btn-dark" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" id ="Cancelar" onclick="resetSave();"><b>Cancelar</b></button>
+                    <div class = "col-2"></div>
+                </div>
+                </br>
+            </form>
+            <div class = "row mx-1 my-2">
+                <div class = "col-1"></div>
+                <button class=" col-4 mx-auto btn-dark" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" onclick="loadTable()">Carregar clientes</button>
+                <div class = "col-2"></div>
+                <button class=" col-4 mx-auto btn-dark" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" onclick="loadTable()">Carregar lacres</button>
+                <div class = "col-1"></div>
             </div>
             <div class = "row mx-1 my-2">
-                <div class = "col-4"></div>
-                <button class=" col-4 mx-auto btn-dark" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" onclick="loadTable()">Carregar clientes</button>
-                <div class = "col-4"></div>
+                <table class= "col-12 mx-auto table-sm table-dark table-striped table-hover table-bordered" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" id="tabela">
+                    <tr>
+                      <th>Id</th>
+                      <th>Nome</th>
+                      <th>cpf</th>
+                      <th>IE</th>
+                      <th>UF</th>
+                      <th>Email</th>
+                      <th>Telefone</th>
+                      <th>Cep</th>
+                      <th>Rua</th>
+                      <th>Nr</th>
+                      <th>Complemento</th>
+                      <th>Ação</th>
+                    </tr>
+                </table>
             </div>
-            <table class= "mx-auto table-sm table-dark table-striped table-hover table-bordered" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" id="tabela">
-                <tr>
-                  <th>Id</th>
-                  <th>Nome</th>
-                  <th>Idade</th>
-                  <th>Salario</th>
-                  <th>Avatar</th>
-                  <th>Ações</th>
-                </tr>
-            </table>   
             <div class = "row mx-1 my-2">
-                <div class = "col-4"></div>
+                <div class = "col-1"></div>
                 <button class=" col-4 mx-auto btn-dark" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" onclick="loadTable()">Carregar clientes</button>
-                <div class = "col-4"></div>
+                <div class = "col-2"></div>
+                <button class=" col-4 mx-auto btn-dark" style="border-width: 2px; border-radius: 5px; border-style: solid; border-color: black;" onclick="loadTable()">Carregar lacres</button>
+                <div class = "col-1"></div>
             </div>
         </main>
             <script>
-
                 function resetSave() {
-                    document.getElementById("Salvar").setAttribute("onclick", "criarcliente()");
+                    document.getElementById("Salvar").setAttribute("onclick", "criarCliente()");
                 }
-                function loadcliente(cliente) {
+                function loadCliente(cliente) {
                     document.getElementById("name").value = cliente[1].employee_name;
                     document.getElementById("salary").value = cliente[1].employee_salary;
                     document.getElementById("age").value = cliente[1].employee_age;
                     document.getElementById("avatar").value = cliente[1].profile_image;
-                    document.getElementById("Salvar").setAttribute("onclick", "updatecliente('"+cliente[1].id+"')");
+                    document.getElementById("Salvar").setAttribute("onclick", "updateCliente('"+cliente[1].id+"')");
                     console.log(document.getElementById("Salvar"));
                 }
 
-                function getcliente(idcliente){
+                function getCliente(idcliente){
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
                             var response = Object.values(JSON.parse(this.responseText));
                             console.log(response);
-                            loadcliente(response);
+                            loadCliente(response);
                         }
                     };
-                    xhttp.open("GET", "http://rest-api-employees.jmborges.site/api/v1/employee/"+idcliente, true);
+                    xhttp.open("GET", "https://private-e53594-apulo.apiary-mock.com/clientes/"+idcliente, true);
                     xhttp.send();
                 }
 
-                function updatecliente(idcliente){
+                function updateCliente(idcliente){
                     var xhttp = new XMLHttpRequest();
                     var registro = {
                         name: document.getElementById("name").value ,
@@ -105,14 +147,14 @@
                             console.log(response);
                         }
                     };
-                    xhttp.open("PUT", "http://rest-api-employees.jmborges.site/api/v1/update/"+idcliente, true);
+                    xhttp.open("PUT", "https://private-e53594-apulo.apiary-mock.com/updateCliente/"+idcliente, true);
                     xhttp.setRequestHeader("Content-type", "application/json");
                     xhttp.send(JSON.stringify(registro));
                     console.log(JSON.stringify(registro));
                     resetSave();
                 }
 
-                function deleteEmployee(idcliente){
+                function deleteCliente(idcliente){
                     if (confirm("Deseja excluir o cliente " + idcliente + " ?")) {
                         var xhttp = new XMLHttpRequest();
                         xhttp.onreadystatechange = function() {
@@ -121,18 +163,24 @@
                                 console.log(response);
                             }
                         };
-                        xhttp.open("DELETE", "http://rest-api-employees.jmborges.site/api/v1/delete/"+idcliente, true);
+                        xhttp.open("DELETE", "https://private-e53594-apulo.apiary-mock.com/deletecliente/"+idcliente, true);
                         xhttp.send();
                     }
                 }
                 
-                function criarcliente() {
+                function criarCliente() {
                     var xhttp = new XMLHttpRequest();
                     var registro = {
-                        name: document.getElementById("name").value ,
-                        salary: document.getElementById("salary").value ,
-                        age: document.getElementById("age").value ,
-                        profile_image: document.getElementById("avatar").value
+                        nome: document.getElementById("nome").value,
+                        telefone: document.getElementById("telefone").value,
+                        email: document.getElementById("email").value,
+                        cpf: document.getElementById("cpf").value,
+                        ie: document.getElementById("ie").value,
+                        rua: document.getElementById("rua").value,
+                        numero: document.getElementById("numero").value,
+                        complemento: document.getElementById("complemento").value,
+                        cep: document.getElementById("cep").value,
+                        uf: document.getElementById("uf").value
                     };
                     xhttp.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
@@ -140,44 +188,42 @@
                             console.log(response);
                         }
                     };
-                    xhttp.open("POST", "http://rest-api-employees.jmborges.site/api/v1/create", true);
+                    xhttp.open("POST", "https://private-e53594-apulo.apiary-mock.com/createcliente", true);
                     xhttp.setRequestHeader("Content-type", "application/json");
                     xhttp.send(JSON.stringify(registro));
                     console.log(JSON.stringify(registro));
-                    }
-
-                function isNull(link){
-                    if (link != null) {
-                        return "<td> <a class=\"mx-1 my-1\" href=\""+link+"\">Visualizar</a> </td>";
-                    } else {
-                        return "<td> <p class=\"mx-1 my-1\">Não Possui</p> </td>";
-                    }
                 }
 
-                function loadTable() {
+                function loadTableCliente() {
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
                             var response = JSON.parse(this.responseText);
-                            document.getElementById("tabela").innerHTML="<tr><th>Id</th><th>Nome</th><th>Idade</th><th>Salario</th><th>Avatar</th><th>Ações</th></tr>"
-                            document.getElementById("tabela").insertAdjacentHTML("beforeend", createRows(response.data));
+                            document.getElementById("tabela").innerHTML="<tr><th>Id</th><th>Nome</th><th>cpf</th><th>IE</th><th>UF</th><th>Email</th><th>Telefone</th><th>Cep</th><th>Rua</th><th>Nr</th><th>Complemento</th><th>Ação</th></tr>"
+                            document.getElementById("tabela").insertAdjacentHTML("beforeend", createRows(response.retorno));
                             console.log(response);
                         }
                     };
-                    xhttp.open("GET", "http://rest-api-employees.jmborges.site/api/v1/employees", true);
+                    xhttp.open("GET", "https://private-e53594-apulo.apiary-mock.com/clientes", true);
                     xhttp.send();
                 }
 
-                function createRows(data){
+                function createRowsCliente(retorno){
                     var htmlString = "";
-                    for (i = 0; i < data.length; i++){
+                    for (i = 0; i < retorno.length; i++){
                         htmlString += "<tr>" +
-                        "<td> <p class=\"mx-1 my-1\">"+data[i].id +"</p></td>" +
-                        "<td>" + data[i].employee_name + "</td>" + 
-                        "<td>" + data[i].employee_salary + "</td>" + 
-                        "<td>" + data[i].employee_age + "</td>" + 
-                        isNull(data[i].profile_imagem) +
-                        "<td><p class=\"mx-1 my-1\"><button type=\"button\" class=\"btn btn-link\" onclick=\"getcliente('" + data[i].id + "')\">Editar</button> | <button type=\"button\" class=\"btn btn-link\" onclick=\"deleteEmployee('" + data[i].id + "')\">Excluir</button>" +
+                        "<td> <p class=\"mx-1 my-1\">"+retorno[i].id +"</p></td>" +
+                        "<td>" + retorno[i].nome + "</td>" + 
+                        "<td>" + retorno[i].cpf+ "</td>" + 
+                        "<td>" + retorno[i].ie+ "</td>" +
+                        "<td>" + retorno[i].uf+ "</td>" +
+                        "<td>" + retorno[i].email+ "</td>" +
+                        "<td>" + retorno[i].telefone+ "</td>" +
+                        "<td>" + retorno[i].cep+ "</td>" +
+                        "<td>" + retorno[i].rua+ "</td>" +
+                        "<td>" + retorno[i].numero+ "</td>" +
+                        "<td>" + retorno[i].complemento+ "</td>" +
+                        "<td><p class=\"mx-1 my-1\"><button type=\"button\" class=\"btn btn-link\" onclick=\"getCliente('" + retorno[i].id + "')\">Editar</button> | <button type=\"button\" class=\"btn btn-link\" onclick=\"deleteCliente('" + retorno[i].id + "')\">Excluir</button>" +
                         "</tr>"
                     }
                     return htmlString;
