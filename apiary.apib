@@ -4,3 +4,356 @@ HOST: https://aplicacao.api.teste/
 # DSC - DEPARTAMENTO DE SISTEMAS E COMPUTAÇÃO
 
 Registro de clientes e lacres de uma interventora autorizada
+
+# Group [DSC]
+
+## Camaras [/camaras]
+
+### Buscar Câmaras [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "nome": "Camara de ensino",
+                "descricao": "A camara que ensina",
+                "professores": [
+                    {   
+                        "id": "0",
+                        "nome": "Miguel",
+                        "email": "emaildomiguel@furb.br",
+                    }
+                ]
+            }   
+        ]
+        
++ Response 404 (text/plain) 
+
+        Erro 404: Recurso não encontrado.
+        
+### Cadastrar Câmara [POST /id]
+
++ Request (application/json)
+
+        {
+            "nome": "string",
+            "descricao": "string"
+            "professoresIds": "int[]"
+        }
+        
++ Response 200 (text/plain)
+
+        Câmara cadastrada com sucesso.
+        
++ Response 404 (text/plain)
+
+        Erro 404: Recurso não encontrado.
+
+### Editar Câmara [PUT /camaras/{id}]
++ Request (application/json)
+
+        {
+            "id": "int",
+            "nome": "string",
+            "descricao": "string"
+            "professoresIds": "int[]"
+        }
+
++ Response 200 (text/plain)
+
+        Câmara alterada com sucesso.
+        
++ Response 400 (text/plain)
+
+        Câmara não encontrada.
+        
+## Infraestrutura Laboratórios [/infraestruturaLaboratorios]  
+
+### Buscar Infraestrutura de Laboratório [GET]
+
++ Response 200 (application/json)
+
+        {
+            "nome": "Laboratório de Computação",
+            "responsavel": "Miguel",
+            "descricao": "",
+            "localizacao": "Campus 1 - Sala S10",
+            "capacidade": "50",
+            "equipamentos": [
+                {
+                    "quantidade": "1",
+                    "descricao": "Servidor Dell PowerEdge R300"
+                }
+            ],
+            "computadores": [
+                {
+                    "quantidade": "1",
+                    "processador": "Intel I2",
+                    "memoriaRam": "500 MB",
+                    "discoRigido": "40 GB",
+                    "monitorPolegadas": "17",
+                    "sistemaOperacional": "Windows XP"
+                }
+            ]
+        }
+        
++ Response 404 (text/plain)
+
+        Recurso não encontrado.
+    
+### Remover Infraestrutura de Laboratório [DELETE /infraestruturaLaboratorios/{id}]
+
++ Response 200 (text/plain)
+
+        Laboratório não existente.
+    
++ Response 404 (text/plain)
+
+        Recurso não encontrado.
+        
+### Editar Infraestrutura de Laboratório [PUT /infraestruturaLaboratorios/{id}]
+
++ Request (application/json)
+
+        {
+            "id": "0",
+            "nome": "Laboratório de Computação",
+            "responsavel": "Miguel",
+            "descricao": "",
+            "localizacao": "Campus 1 - Sala S10",
+            "capacidade": "50",
+            "equipamentos": [
+                {
+                    "quantidade": "1",
+                    "descricao": "Servidor Dell PowerEdge R300"
+                }
+            ],
+            "computadores": [
+                {
+                    "quantidade": "1",
+                    "processador": "Intel I2",
+                    "memoriaRam": "500 MB",
+                    "discoRigido": "40 GB",
+                    "monitorPolegadas": "17",
+                    "sistemaOperacional": "Windows XP"
+                }
+            ]
+        }
+        
++ Response 200 (text/plain)
+
+        Laboratório alterado com sucesso.
+        
++ Response 400 (text/plain) 
+
+        Laboratório não encontrado.
+        
+## Monitores [/monitores]
+
+### Buscar Monitores [GET]
+
++ Response 200 (application/json)
+
+        {
+            "nome": "Monitor Silva",
+            "area": "Técnicas Básicas em Computação",
+            "emails": [
+                "email1@email.com"
+            ],
+            "horarios": [
+                {
+                    "turnoId": "0",
+                    "horarioId": "0"
+                }
+            ]
+        }
+        
++ Response 404 (text/plain)
+
+        Recurso não encontrado.
+
+### Alterar Monitor [PUT /monitores/{id}]
+
++ Request (application/json)
+
+        {
+            "id": "0",
+            "nome": "Monitor Silva",
+            "area": "Técnicas Básicas em Computação",
+            "emails": [
+                "email1@email.com"
+            ],
+            "horarios": [
+                {
+                    "turnoId": "0",
+                    "horarioId": "0"
+                }
+            ]
+        }
+
++ Response 200 (application/json)
+
+        Monitor alterado com sucesso.
+        
++ Response 400 (text/plain)    
+
+        Monitor não encontrado.
+        
++ Response 404 (text/plain)
+
+        Recurso não encontrado.
+
+### Adicionar Monitor [POST]
+
++ Request (application/json)
+
+        {
+            "nome": "Monitor Silva",
+            "area": "Técnicas Básicas em Computação",
+            "emails": [
+                "email1@email.com"
+            ],
+            "horarios": [
+                {
+                    "turnoId": "0",
+                    "horarioId": "0"
+                }
+            ]
+        }
+
++ Response 200 (application/json)
+
+        Monitor criado com sucesso.
+        
++ Response 404 (text/plain)
+
+        Recurso não encontrado.
+        
+## Noticias [/noticias]
+
+### Buscar Notícia [GET]
+
++ Response 200 (application/json)
+
+        {
+            "dataCriacao": "2020-08-01",
+            "titulo": "Titulo",
+            "autor": "Pedro",
+            "fonte": "DSC",
+            "contudo": "TEXTO AQUI"
+        }
+        
++ Response 404 (text/plain)
+
+        Recurso não encontrado.
+        
+### Apagar Notícia [DELETE /noticias/{id}]
+
++ Response 200 (text/plain)
+
+        Notícia não existente.
+    
++ Response 404 (text/plain)
+
+        Recurso não encontrado.
+        
+### Adicionar Notícia [POST]
+
++ Request (application/json)
+
+        {
+            "titulo": "Titulo",
+            "autor": "Pedro",
+            "fonte": "DSC",
+            "contudo": "TEXTO AQUI"
+        }
+        
++ Response 200 (text/plain)
+
+        Notícia criada com sucesso.
+        
++ Response 404 (text/plain)
+
+        Recurso não encontrado.
+
+## Professores [/professores]
+
+### Buscar Professor [GET]
+
++ Response 200 (application/json)
+
+        {
+            "nome": "Miguel",
+            "formacao": "Mestrado em mecatronica",
+            "areaConcentracao": "Engenharia de avaliação e inovação tecnológica",
+            "areaTematica": "Linguagem de baixo nível",
+            "areaPesquisa": 
+            [
+                "Informática da educação"
+            ],
+            "disciplinas":
+            [
+                {
+                    "nome": "Arquitetura I",
+                    "curso": "BCC",
+                    "turno": "noturno"
+                }
+            ],
+            "sala": "S - 404",
+            "email": "miguel@furb.br",
+            "site": "miguel.com.br",
+            "skype": "miguel.furb.9",
+            "curriculoUrl": "http://imgame.jpg",
+            "avatar": "Aang.jpg"
+        }
+        
++ Response 404 (text/plain)
+
+        Recurso não encontrado.
+
+### Deletar Professor [DELETE /professores/{id}]
+
++ Response 200 (text/plain)
+
+        Professor não existente.
+    
++ Response 404 (text/plain)
+
+        Recurso não encontrado.
+        
+### Adicionar Professor [POST]
+
++ Request (application/json)
+
+        {
+            "nome": "Miguel",
+            "formacao": "Mestrado em mecatronica",
+            "areaConcentracao": "Engenharia de avaliação e inovação tecnológica",
+            "areaTematica": "Linguagem de baixo nível",
+            "areaPesquisa": 
+            [
+                "Informática da educação"
+            ],
+            "disciplinasIds":
+            [
+                "0"
+            ],
+            "sala": "S - 404",
+            "email": "miguel@furb.br",
+            "site": "miguel.com.br",
+            "skype": "miguel.furb.9",
+            "curriculoUrl": "http://imgame.jpg",
+            "avatar": "Aang.jpg"
+        }
+        
++ Response 200 (text/plain)
+
+        Professor criada com sucesso.
+        
++ Response 400 (text/plain)
+
+        Email já existente.
+        
++ Response 404 (text/plain)
+
+        Recurso não encontrado.
